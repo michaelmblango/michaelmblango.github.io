@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HERLINE 232 — Product Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f0e0c;
+  --ink-2: #3a3830;
+  --ink-3: #7a7670;
+  --cream: #faf8f3;
+  --cream-2: #f2ede2;
+  --cream-3: #e8e0d0;
+  --red: #c8392b;
+  --red-light: #f5e8e6;
+  --gold: #b8860b;
+  --gold-light: #fdf6e0;
+  --teal: #1a6b5a;
+  --teal-light: #e4f0ec;
+  --border: rgba(15,14,12,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+}
+.page { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+
+/* HERO */
+.hero {
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+.hero-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-tag::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(42px, 7vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: .5rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--red);
+}
+.hero-sub {
+  font-size: 18px;
+  color: var(--ink-2);
+  font-weight: 300;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  line-height: 1.5;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pill {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 100px;
+  border: 1px solid;
+}
+.pill-red { background: var(--red-light); color: var(--red); border-color: var(--red); }
+.pill-teal { background: var(--teal-light); color: var(--teal); border-color: var(--teal); }
+.pill-gold { background: var(--gold-light); color: var(--gold); border-color: var(--gold); }
+.pill-ink { background: var(--cream-3); color: var(--ink-2); border-color: var(--border); }
+
+/* SECTION */
+.sec {
+  margin-bottom: 3.5rem;
+}
+.sec-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .15em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}
+.sec h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+.sec p {
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.75;
+  margin-bottom: .75rem;
+  max-width: 720px;
+}
+
+/* CHANNEL GRID */
+.channel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+.channel-card {
+  background: var(--cream);
+  padding: 1.25rem;
+  transition: background .15s;
+}
+.channel-card:hover { background: var(--cream-2); }
+.channel-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: .75rem;
+}
+.ch-sms { background: var(--teal-light); }
+.ch-ussd { background: var(--red-light); }
+.ch-wa { background: #e8f5e9; }
+.ch-voice { background: var(--gold-light); }
+.ch-web { background: #e8eaf6; }
+.channel-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: .3rem;
+}
+.channel-card p {
+  font-size: 12px;
+  color: var(--ink-3);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* FEATURE BLOCKS */
+.feature-list {
+  display: grid;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+.feature-item {
+  background: var(--cream);
+  padding: 1.25rem 1.5rem;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.feature-item:hover { background: var(--cream-2); }
+.feat-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-3);
+  padding-top: 3px;
+}
+.feat-content h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: .3rem;
+}
+.feat-content p {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 100%;
+}
+
+/* FLOW DIAGRAM */
+.flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.flow-step {
+  flex: 1;
+  min-width: 120px;
+  padding: 1.25rem 1rem;
+  background: var(--cream);
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+.flow-step:last-child { border-right: none; }
+.flow-step-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-3);
+  margin-bottom: .4rem;
+  letter-spacing: .08em;
+}
+.flow-step h4 { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: .4rem; }
+.flow-step p { font-size: 12px; color: var(--ink-2); line-height: 1.5; margin: 0; }
+.flow-step.accent { background: var(--ink); }
+.flow-step.accent .flow-step-num,
+.flow-step.accent h4,
+.flow-step.accent p { color: var(--cream); }
+
+/* DATA SECTION */
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+.data-card {
+  background: var(--cream-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+}
+.data-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: .3rem;
+}
+.data-num span { font-size: 18px; color: var(--ink-3); }
+.data-label { font-size: 12px; color: var(--ink-3); line-height: 1.4; }
+
+/* DASHBOARD MOCKUP */
+.dash-mock {
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--cream);
+}
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.dash-title { font-size: 14px; font-weight: 600; }
+.dash-status { font-size: 11px; color: #4caf50; font-family: 'DM Mono', monospace; }
+.dash-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+.dash-stat {
+  background: rgba(255,255,255,.06);
+  border-radius: 8px;
+  padding: .75rem;
+}
+.dash-stat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: var(--cream);
+  margin-bottom: 2px;
+}
+.dash-stat-label { font-size: 10px; color: rgba(255,255,255,.5); font-family: 'DM Mono', monospace; }
+.dash-bars { display: flex; flex-direction: column; gap: 8px; }
+.dash-bar-row { display: flex; align-items: center; gap: 10px; }
+.dash-bar-label { font-size: 11px; color: rgba(255,255,255,.6); width: 80px; flex-shrink: 0; }
+.dash-bar-track { flex: 1; height: 6px; background: rgba(255,255,255,.1); border-radius: 3px; overflow: hidden; }
+.dash-bar-fill { height: 100%; border-radius: 3px; }
+.dash-bar-val { font-size: 11px; color: rgba(255,255,255,.5); width: 30px; text-align: right; font-family: 'DM Mono', monospace; }
+
+/* LANGUAGE + PRIVACY */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 1.5rem 0; }
+.info-card {
+  background: var(--cream-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.info-card h4 { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: .75rem; }
+.info-card ul { list-style: none; padding: 0; }
+.info-card li {
+  font-size: 13px;
+  color: var(--ink-2);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+  line-height: 1.4;
+}
+.info-card li:last-child { border-bottom: none; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); flex-shrink: 0; margin-top: 6px; }
+
+/* REFERRAL PATH */
+.ref-path {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+.ref-step {
+  background: var(--cream);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.ref-step:hover { background: var(--cream-2); }
+.ref-badge {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  padding: 3px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.rb-1 { background: var(--red-light); color: var(--red); }
+.rb-2 { background: var(--gold-light); color: var(--gold); }
+.rb-3 { background: var(--teal-light); color: var(--teal); }
+.rb-4 { background: #e8eaf6; color: #3949ab; }
+.rb-5 { background: #e8f5e9; color: #2e7d32; }
+.ref-text { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+.ref-text strong { color: var(--ink); font-weight: 600; }
+.ref-time {
+  margin-left: auto;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* MAXCIT SCOPE */
+.scope-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+.scope-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  background: var(--cream);
+}
+.scope-card h4 { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: .6rem; }
+.scope-card ul { list-style: none; padding: 0; }
+.scope-card li { font-size: 12px; color: var(--ink-2); padding: 3px 0; display: flex; gap: 6px; line-height: 1.4; }
+
+/* DIVIDER */
+.divider { height: 1px; background: var(--border); margin: 3rem 0; }
+
+/* FOOTER */
+.footer {
+  border-top: 1.5px solid var(--ink);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer p { font-size: 12px; color: var(--ink-3); font-family: 'DM Mono', monospace; }
+
+@media(max-width: 600px) {
+  .dash-stats { grid-template-columns: repeat(2, 1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  .flow { flex-direction: column; }
+  .flow-step { border-right: none; border-bottom: 1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">CFLI Sierra Leone 2026 — Product Blueprint</div>
+    <h1><em>HERLINE</em> 232</h1>
+    <p class="hero-sub">Safe Voices, Fast Action — A multi-channel SGBV incident reporting and survivor referral platform for Sierra Leone.</p>
+    <div class="hero-meta">
+      <span class="pill pill-red">SMS · USSD · WhatsApp · Voice</span>
+      <span class="pill pill-teal">No smartphone required</span>
+      <span class="pill pill-gold">Krio + English</span>
+      <span class="pill pill-ink">MaxCIT Technology Partner</span>
+      <span class="pill pill-ink">2 districts · 24 months</span>
+    </div>
+  </div>
+
+  <!-- WHAT IS IT -->
+  <div class="sec">
+    <div class="sec-label">Overview</div>
+    <h2>What HERLINE 232 is</h2>
+    <p>HERLINE 232 is a survivor-centered digital reporting and referral system that allows women and girls in Sierra Leone to safely report sexual and gender-based violence, access emergency referrals, and receive follow-up support — all from a basic mobile phone, without internet, without a smartphone, and without revealing their identity.</p>
+    <p>Named after Sierra Leone's international dialing code (+232), the platform operates across five channels simultaneously, meeting survivors wherever they are — in a rural village, at a market, in a home. It connects each report directly to the nearest verified service provider: a Rainbo Centre, a legal aid paralegal, a One-Stop Centre, or a trained community health worker.</p>
+    <p>On the back end, every anonymized interaction feeds a real-time data dashboard that gives NGO staff, policymakers, and advocates the evidence they need to drive systemic change.</p>
+  </div>
+
+  <!-- CHANNELS -->
+  <div class="sec">
+    <div class="sec-label">Access Channels</div>
+    <h2>Five ways to reach HERLINE 232</h2>
+    <div class="channel-grid">
+      <div class="channel-card">
+        <div class="channel-icon ch-sms">💬</div>
+        <h4>SMS</h4>
+        <p>Text a keyword to a short code. Works on any basic phone. No data needed. Receives automated triage response within 60 seconds.</p>
+      </div>
+      <div class="channel-card">
+        <div class="channel-icon ch-ussd">📟</div>
+        <h4>USSD Menu</h4>
+        <p>Dial *232# to access a guided menu — like mobile banking. Works offline. No literacy required for navigation. Available 24/7.</p>
+      </div>
+      <div class="channel-card">
+        <div class="channel-icon ch-wa">📱</div>
+        <h4>WhatsApp Bot</h4>
+        <p>For urban and peri-urban users with data access. Conversational interface in Krio and English. Supports images and voice notes.</p>
+      </div>
+      <div class="channel-card">
+        <div class="channel-icon ch-voice">📞</div>
+        <h4>Voice IVR</h4>
+        <p>Call the helpline and navigate an audio menu. Ideal for low-literacy survivors. Supports Krio, English, and key local dialects.</p>
+      </div>
+      <div class="channel-card">
+        <div class="channel-icon ch-web">🌐</div>
+        <h4>Web Portal</h4>
+        <p>For NGO case workers and community health workers to log cases, update referrals, and access the data dashboard.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SURVIVOR JOURNEY -->
+  <div class="sec">
+    <div class="sec-label">User Journey</div>
+    <h2>What happens when someone reaches out</h2>
+    <div class="flow">
+      <div class="flow-step accent">
+        <div class="flow-step-num">STEP 01</div>
+        <h4>Contact</h4>
+        <p>Survivor texts, dials *232#, or calls. No name required. Immediate acknowledgement sent.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 02</div>
+        <h4>Triage</h4>
+        <p>Automated system asks 3 safety questions. Assesses urgency level: emergency / support needed / information only.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 03</div>
+        <h4>Route</h4>
+        <p>System identifies nearest verified service by district — Rainbo Centre, legal aid, One-Stop Centre, CHW.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 04</div>
+        <h4>Connect</h4>
+        <p>Survivor receives contact details or direct warm handoff to responder within the 48-hour target window.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 05</div>
+        <h4>Follow-up</h4>
+        <p>Automated check-in SMS at 7 days. Case status updated in dashboard. Survivor can re-engage at any point.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- REFERRAL NETWORK -->
+  <div class="sec">
+    <div class="sec-label">Referral Pathway</div>
+    <h2>Where cases are directed</h2>
+    <div class="ref-path">
+      <div class="ref-step">
+        <span class="ref-badge rb-1">Emergency</span>
+        <span class="ref-text"><strong>Police FRU (Family Support Unit)</strong> — Immediate physical danger, active assault, life threat</span>
+        <span class="ref-time">0–2 hrs</span>
+      </div>
+      <div class="ref-step">
+        <span class="ref-badge rb-2">Medical</span>
+        <span class="ref-text"><strong>Rainbo Initiative Centre / One-Stop Centre</strong> — Medical examination, forensic evidence, emergency contraception, STI treatment</span>
+        <span class="ref-time">0–24 hrs</span>
+      </div>
+      <div class="ref-step">
+        <span class="ref-badge rb-3">Psychosocial</span>
+        <span class="ref-text"><strong>Trained Community Health Workers / NGO Counsellors</strong> — Trauma support, safe house referral, psychosocial first aid</span>
+        <span class="ref-time">24–48 hrs</span>
+      </div>
+      <div class="ref-step">
+        <span class="ref-badge rb-4">Legal</span>
+        <span class="ref-text"><strong>AdvocAid / Legal Aid Board</strong> — Case documentation, court support, paralegal assistance under Sexual Offences Act 2012</span>
+        <span class="ref-time">48–72 hrs</span>
+      </div>
+      <div class="ref-step">
+        <span class="ref-badge rb-5">Economic</span>
+        <span class="ref-text"><strong>Women's Empowerment Partners</strong> — Livelihood support, safe housing referral for survivors fleeing domestic situations</span>
+        <span class="ref-time">Ongoing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CORE FEATURES -->
+  <div class="sec">
+    <div class="sec-label">Platform Features</div>
+    <h2>Every feature, in detail</h2>
+    <div class="feature-list">
+      <div class="feature-item">
+        <span class="feat-num">01</span>
+        <div class="feat-content">
+          <h4>Anonymous reporting engine</h4>
+          <p>No name, no ID, no location data stored. Each case is assigned a randomized case token the survivor can use to check status or follow up. Phone numbers are hashed and never stored in plaintext. GDPR-aligned data architecture.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feat-num">02</span>
+        <div class="feat-content">
+          <h4>Intelligent triage system</h4>
+          <p>Three-question safety assessment determines urgency level automatically. High-risk cases (immediate danger, child involved, FGM ceremony imminent) trigger priority alert to the nearest responder. Low-risk cases receive information and are queued for CHW follow-up.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feat-num">03</span>
+        <div class="feat-content">
+          <h4>District-based service directory</h4>
+          <p>Real-time database of verified service providers across target districts — name, address, opening hours, services offered, and capacity status. Updated by NGO staff via web portal. Survivors are always matched to the nearest available provider, never a closed or full facility.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feat-num">04</span>
+        <div class="feat-content">
+          <h4>Automated follow-up SMS</h4>
+          <p>System sends a check-in message 7 days after first contact. Simple one-tap response: "I got help" / "I still need help" / "I am safe." Non-responses flag the case for CHW outreach. Survivors can opt out of follow-up at any time.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feat-num">05</span>
+        <div class="feat-content">
+          <h4>NGO case management dashboard</h4>
+          <p>Web-based portal for trained NGO staff and CHWs. View incoming cases, update referral status, flag high-risk cases, and generate reports. Role-based access: field officers see their district only; coordinators see full picture. Offline-capable for areas with poor connectivity.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feat-num">06</span>
+        <div class="feat-content">
+          <h4>Real-time incident analytics</h4>
+          <p>Anonymized data aggregated into visual dashboards: cases by type, age group, district, time of day, referral outcome, and follow-up response rate. Data disaggregated by gender, disability status, and age. Exportable for donor reporting and national SGBV data integration (GBVIMS+).</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feat-num">07</span>
+        <div class="feat-content">
+          <h4>Multilingual interface</h4>
+          <p>Full support for Krio (primary) and English across all channels. Voice IVR includes Temne and Mende language options for rural districts. WhatsApp bot supports voice note submissions for non-literate users. Translation managed in collaboration with local community members.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feat-num">08</span>
+        <div class="feat-content">
+          <h4>Community health worker app</h4>
+          <p>Lightweight mobile app (Android, works on low-end devices) for trained CHWs to receive assigned cases, log field visits, update case notes, and escalate to coordinators. Works on 2G. Syncs when connectivity is restored after offline use.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feat-num">09</span>
+        <div class="feat-content">
+          <h4>Panic/quick-exit feature</h4>
+          <p>On the WhatsApp bot and web version, a single tap exits and clears the screen immediately — replacing it with a weather page or neutral content. Designed for survivors in homes where an abuser may see their phone. Session is paused, not lost.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feat-num">10</span>
+        <div class="feat-content">
+          <h4>Legal information library</h4>
+          <p>Built-in repository of survivor rights under Sierra Leone law — Sexual Offences Act 2012, Domestic Violence Act 2007, Prohibition of Child Marriage Act 2024. Plain-language summaries in Krio. Accessible via all channels without needing to report an incident.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feat-num">11</span>
+        <div class="feat-content">
+          <h4>CEFM and FGM/C early alert module</h4>
+          <p>Community members (teachers, neighbours, CHWs) can anonymously flag a girl at risk of forced marriage or FGM ceremony. Alert goes to NGO coordinator and triggers rapid response protocol. Specifically designed for the Koinadugu and Kambia districts where prevalence is highest.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feat-num">12</span>
+        <div class="feat-content">
+          <h4>Data export and advocacy tools</h4>
+          <p>One-click generation of district-level SGBV reports formatted for submission to the Ministry of Gender and Children's Affairs, local councils, and GBVIMS+ national database. Designed to turn platform data directly into policy advocacy evidence — four reports per year built into the project plan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATA STATS -->
+  <div class="sec">
+    <div class="sec-label">Why it will work — Sierra Leone context</div>
+    <h2>The numbers behind the design</h2>
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-num">99<span>%</span></div>
+        <div class="data-label">Mobile phone penetration in Sierra Leone (2025)</div>
+      </div>
+      <div class="data-card">
+        <div class="data-num">20<span>%</span></div>
+        <div class="data-label">Internet access — why SMS/USSD is essential, not optional</div>
+      </div>
+      <div class="data-card">
+        <div class="data-num">3,055</div>
+        <div class="data-label">SGBV cases documented by Rainbo Initiative in 2025 alone</div>
+      </div>
+      <div class="data-card">
+        <div class="data-num">83<span>%</span></div>
+        <div class="data-label">FGM/C prevalence among women 15–49 (national)</div>
+      </div>
+      <div class="data-card">
+        <div class="data-num">0</div>
+        <div class="data-label">Existing SMS-based survivor reporting platforms at scale in Sierra Leone</div>
+      </div>
+      <div class="data-card">
+        <div class="data-num">48<span>hr</span></div>
+        <div class="data-label">Target referral-to-service connection window for all cases</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD MOCKUP -->
+  <div class="sec">
+    <div class="sec-label">Back-End Dashboard</div>
+    <h2>What NGO staff see</h2>
+    <div class="dash-mock">
+      <div class="dash-header">
+        <span class="dash-title">HERLINE 232 — Case Management Dashboard</span>
+        <span class="dash-status">● LIVE · 247 active cases</span>
+      </div>
+      <div class="dash-stats">
+        <div class="dash-stat"><div class="dash-stat-num">247</div><div class="dash-stat-label">ACTIVE CASES</div></div>
+        <div class="dash-stat"><div class="dash-stat-num">89%</div><div class="dash-stat-label">REFERRED &lt;48HRS</div></div>
+        <div class="dash-stat"><div class="dash-stat-num">40</div><div class="dash-stat-label">CHW TRAINED</div></div>
+        <div class="dash-stat"><div class="dash-stat-num">4</div><div class="dash-stat-label">DISTRICTS ACTIVE</div></div>
+      </div>
+      <div class="dash-bars">
+        <div class="dash-bar-row">
+          <span class="dash-bar-label">Sexual assault</span>
+          <div class="dash-bar-track"><div class="dash-bar-fill" style="width:78%;background:#c8392b"></div></div>
+          <span class="dash-bar-val">78%</span>
+        </div>
+        <div class="dash-bar-row">
+          <span class="dash-bar-label">Domestic violence</span>
+          <div class="dash-bar-track"><div class="dash-bar-fill" style="width:52%;background:#e67e22"></div></div>
+          <span class="dash-bar-val">52%</span>
+        </div>
+        <div class="dash-bar-row">
+          <span class="dash-bar-label">Child marriage</span>
+          <div class="dash-bar-track"><div class="dash-bar-fill" style="width:34%;background:#f1c40f"></div></div>
+          <span class="dash-bar-val">34%</span>
+        </div>
+        <div class="dash-bar-row">
+          <span class="dash-bar-label">FGM/C alerts</span>
+          <div class="dash-bar-track"><div class="dash-bar-fill" style="width:21%;background:#1a9b6e"></div></div>
+          <span class="dash-bar-val">21%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LANGUAGE + PRIVACY -->
+  <div class="sec">
+    <div class="sec-label">Privacy & Language</div>
+    <h2>Safety and accessibility by design</h2>
+    <div class="two-col">
+      <div class="info-card">
+        <h4>Privacy architecture</h4>
+        <ul>
+          <li><span class="dot"></span>No names or identifiers ever stored</li>
+          <li><span class="dot"></span>Phone numbers hashed — not readable</li>
+          <li><span class="dot"></span>Case tokens used for follow-up only</li>
+          <li><span class="dot"></span>End-to-end encrypted data transfer</li>
+          <li><span class="dot"></span>Quick-exit / screen-clear on web/WhatsApp</li>
+          <li><span class="dot"></span>Data stored on servers within West Africa</li>
+          <li><span class="dot"></span>Role-based access — no single person sees all</li>
+          <li><span class="dot"></span>Auto-delete of raw data after 90 days</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>Language support</h4>
+        <ul>
+          <li><span class="dot"></span>Krio — primary language, all channels</li>
+          <li><span class="dot"></span>English — all channels</li>
+          <li><span class="dot"></span>Temne — voice IVR (Northern districts)</li>
+          <li><span class="dot"></span>Mende — voice IVR (Eastern districts)</li>
+          <li><span class="dot"></span>Voice note support for non-literate users</li>
+          <li><span class="dot"></span>Audio-guided USSD menus</li>
+          <li><span class="dot"></span>Plain-language legal summaries in Krio</li>
+          <li><span class="dot"></span>Community co-design of all messaging</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAXCIT SCOPE -->
+  <div class="sec">
+    <div class="sec-label">MaxCIT's Exact Scope</div>
+    <h2>What MaxCIT builds and delivers</h2>
+    <div class="scope-grid">
+      <div class="scope-card">
+        <h4>Platform architecture</h4>
+        <ul>
+          <li><span class="dot"></span>SMS gateway integration (Africa's Talking API)</li>
+          <li><span class="dot"></span>USSD menu build (*232# session logic)</li>
+          <li><span class="dot"></span>WhatsApp Business API bot</li>
+          <li><span class="dot"></span>Voice IVR system</li>
+          <li><span class="dot"></span>Secure cloud backend (AWS West Africa)</li>
+        </ul>
+      </div>
+      <div class="scope-card">
+        <h4>Data systems</h4>
+        <ul>
+          <li><span class="dot"></span>Anonymized case database</li>
+          <li><span class="dot"></span>Real-time analytics dashboard</li>
+          <li><span class="dot"></span>GBVIMS+ data export module</li>
+          <li><span class="dot"></span>Advocacy report generator</li>
+          <li><span class="dot"></span>Role-based access controls</li>
+        </ul>
+      </div>
+      <div class="scope-card">
+        <h4>Mobile tools</h4>
+        <ul>
+          <li><span class="dot"></span>CHW Android app (offline-capable)</li>
+          <li><span class="dot"></span>NGO web case management portal</li>
+          <li><span class="dot"></span>Legal information library</li>
+          <li><span class="dot"></span>CEFM/FGM early alert module</li>
+          <li><span class="dot"></span>Quick-exit panic feature</li>
+        </ul>
+      </div>
+      <div class="scope-card">
+        <h4>Training & handover</h4>
+        <ul>
+          <li><span class="dot"></span>Train 40 CHWs on platform use</li>
+          <li><span class="dot"></span>Train NGO tech staff on admin</li>
+          <li><span class="dot"></span>Technical documentation (full)</li>
+          <li><span class="dot"></span>90-day post-launch support warranty</li>
+          <li><span class="dot"></span>NGO retains all IP and source code</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>HERLINE 232 — MaxCIT Limited Technology Blueprint</p>
+    <p>CFLI Sierra Leone 2026 · Confidential working document</p>
+  </div>
+
+</div>
+</body>
+</html>
