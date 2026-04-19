@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HERLINE 232 — Product Blueprint</title>
+<title>HERLINE 232 - Product Blueprint</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -29,7 +29,39 @@ body {
   color: var(--ink);
   line-height: 1.6;
 }
-.page { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+  .version-banner {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .version-banner span { opacity: 0.8; }
+  .version-banner strong { color: var(--cream); font-weight: 700; margin-left: 5px; }
+  .version-banner a {
+    color: var(--cream);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 4px 12px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .version-banner a:hover {
+    background: var(--cream);
+    color: var(--ink);
+    border-color: var(--cream);
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 1rem 2rem 6rem; }
 
 /* HERO */
 .hero {
@@ -404,13 +436,17 @@ body {
 </style>
 </head>
 <body>
+<div class="version-banner">
+  <div>Viewing: <strong>v1 Blueprint (Original Design)</strong></div>
+  <a href="herline232_v2_blueprint.html">Switch to Version 2</a>
+</div>
 <div class="page">
 
   <!-- HERO -->
   <div class="hero">
-    <div class="hero-tag">CFLI Sierra Leone 2026 — Product Blueprint</div>
+    <div class="hero-tag">CFLI Sierra Leone 2026 - Product Blueprint</div>
     <h1><em>HERLINE</em> 232</h1>
-    <p class="hero-sub">Safe Voices, Fast Action — A multi-channel SGBV incident reporting and survivor referral platform for Sierra Leone.</p>
+    <p class="hero-sub">Safe Voices, Fast Action - A multi-channel SGBV incident reporting and survivor referral platform for Sierra Leone.</p>
     <div class="hero-meta">
       <span class="pill pill-red">SMS · USSD · WhatsApp · Voice</span>
       <span class="pill pill-teal">No smartphone required</span>
@@ -424,8 +460,8 @@ body {
   <div class="sec">
     <div class="sec-label">Overview</div>
     <h2>What HERLINE 232 is</h2>
-    <p>HERLINE 232 is a survivor-centered digital reporting and referral system that allows women and girls in Sierra Leone to safely report sexual and gender-based violence, access emergency referrals, and receive follow-up support — all from a basic mobile phone, without internet, without a smartphone, and without revealing their identity.</p>
-    <p>Named after Sierra Leone's international dialing code (+232), the platform operates across five channels simultaneously, meeting survivors wherever they are — in a rural village, at a market, in a home. It connects each report directly to the nearest verified service provider: a Rainbo Centre, a legal aid paralegal, a One-Stop Centre, or a trained community health worker.</p>
+    <p>HERLINE 232 is a survivor-centered digital reporting and referral system that allows women and girls in Sierra Leone to safely report sexual and gender-based violence, access emergency referrals, and receive follow-up support - all from a basic mobile phone, without internet, without a smartphone, and without revealing their identity.</p>
+    <p>Named after Sierra Leone's international dialing code (+232), the platform operates across five channels simultaneously, meeting survivors wherever they are - in a rural village, at a market, in a home. It connects each report directly to the nearest verified service provider: a Rainbo Centre, a legal aid paralegal, a One-Stop Centre, or a trained community health worker.</p>
     <p>On the back end, every anonymized interaction feeds a real-time data dashboard that gives NGO staff, policymakers, and advocates the evidence they need to drive systemic change.</p>
   </div>
 
@@ -442,7 +478,7 @@ body {
       <div class="channel-card">
         <div class="channel-icon ch-ussd">📟</div>
         <h4>USSD Menu</h4>
-        <p>Dial *232# to access a guided menu — like mobile banking. Works offline. No literacy required for navigation. Available 24/7.</p>
+        <p>Dial *232# to access a guided menu - like mobile banking. Works offline. No literacy required for navigation. Available 24/7.</p>
       </div>
       <div class="channel-card">
         <div class="channel-icon ch-wa">📱</div>
@@ -480,7 +516,7 @@ body {
       <div class="flow-step">
         <div class="flow-step-num">STEP 03</div>
         <h4>Route</h4>
-        <p>System identifies nearest verified service by district — Rainbo Centre, legal aid, One-Stop Centre, CHW.</p>
+        <p>System identifies nearest verified service by district - Rainbo Centre, legal aid, One-Stop Centre, CHW.</p>
       </div>
       <div class="flow-step">
         <div class="flow-step-num">STEP 04</div>
@@ -502,27 +538,27 @@ body {
     <div class="ref-path">
       <div class="ref-step">
         <span class="ref-badge rb-1">Emergency</span>
-        <span class="ref-text"><strong>Police FRU (Family Support Unit)</strong> — Immediate physical danger, active assault, life threat</span>
-        <span class="ref-time">0–2 hrs</span>
+        <span class="ref-text"><strong>Police FRU (Family Support Unit)</strong> - Immediate physical danger, active assault, life threat</span>
+        <span class="ref-time">0-2 hrs</span>
       </div>
       <div class="ref-step">
         <span class="ref-badge rb-2">Medical</span>
-        <span class="ref-text"><strong>Rainbo Initiative Centre / One-Stop Centre</strong> — Medical examination, forensic evidence, emergency contraception, STI treatment</span>
-        <span class="ref-time">0–24 hrs</span>
+        <span class="ref-text"><strong>Rainbo Initiative Centre / One-Stop Centre</strong> - Medical examination, forensic evidence, emergency contraception, STI treatment</span>
+        <span class="ref-time">0-24 hrs</span>
       </div>
       <div class="ref-step">
         <span class="ref-badge rb-3">Psychosocial</span>
-        <span class="ref-text"><strong>Trained Community Health Workers / NGO Counsellors</strong> — Trauma support, safe house referral, psychosocial first aid</span>
-        <span class="ref-time">24–48 hrs</span>
+        <span class="ref-text"><strong>Trained Community Health Workers / NGO Counsellors</strong> - Trauma support, safe house referral, psychosocial first aid</span>
+        <span class="ref-time">24-48 hrs</span>
       </div>
       <div class="ref-step">
         <span class="ref-badge rb-4">Legal</span>
-        <span class="ref-text"><strong>AdvocAid / Legal Aid Board</strong> — Case documentation, court support, paralegal assistance under Sexual Offences Act 2012</span>
-        <span class="ref-time">48–72 hrs</span>
+        <span class="ref-text"><strong>AdvocAid / Legal Aid Board</strong> - Case documentation, court support, paralegal assistance under Sexual Offences Act 2012</span>
+        <span class="ref-time">48-72 hrs</span>
       </div>
       <div class="ref-step">
         <span class="ref-badge rb-5">Economic</span>
-        <span class="ref-text"><strong>Women's Empowerment Partners</strong> — Livelihood support, safe housing referral for survivors fleeing domestic situations</span>
+        <span class="ref-text"><strong>Women's Empowerment Partners</strong> - Livelihood support, safe housing referral for survivors fleeing domestic situations</span>
         <span class="ref-time">Ongoing</span>
       </div>
     </div>
@@ -553,7 +589,7 @@ body {
         <span class="feat-num">03</span>
         <div class="feat-content">
           <h4>District-based service directory</h4>
-          <p>Real-time database of verified service providers across target districts — name, address, opening hours, services offered, and capacity status. Updated by NGO staff via web portal. Survivors are always matched to the nearest available provider, never a closed or full facility.</p>
+          <p>Real-time database of verified service providers across target districts - name, address, opening hours, services offered, and capacity status. Updated by NGO staff via web portal. Survivors are always matched to the nearest available provider, never a closed or full facility.</p>
         </div>
       </div>
       <div class="feature-item">
@@ -595,14 +631,14 @@ body {
         <span class="feat-num">09</span>
         <div class="feat-content">
           <h4>Panic/quick-exit feature</h4>
-          <p>On the WhatsApp bot and web version, a single tap exits and clears the screen immediately — replacing it with a weather page or neutral content. Designed for survivors in homes where an abuser may see their phone. Session is paused, not lost.</p>
+          <p>On the WhatsApp bot and web version, a single tap exits and clears the screen immediately - replacing it with a weather page or neutral content. Designed for survivors in homes where an abuser may see their phone. Session is paused, not lost.</p>
         </div>
       </div>
       <div class="feature-item">
         <span class="feat-num">10</span>
         <div class="feat-content">
           <h4>Legal information library</h4>
-          <p>Built-in repository of survivor rights under Sierra Leone law — Sexual Offences Act 2012, Domestic Violence Act 2007, Prohibition of Child Marriage Act 2024. Plain-language summaries in Krio. Accessible via all channels without needing to report an incident.</p>
+          <p>Built-in repository of survivor rights under Sierra Leone law - Sexual Offences Act 2012, Domestic Violence Act 2007, Prohibition of Child Marriage Act 2024. Plain-language summaries in Krio. Accessible via all channels without needing to report an incident.</p>
         </div>
       </div>
       <div class="feature-item">
@@ -616,7 +652,7 @@ body {
         <span class="feat-num">12</span>
         <div class="feat-content">
           <h4>Data export and advocacy tools</h4>
-          <p>One-click generation of district-level SGBV reports formatted for submission to the Ministry of Gender and Children's Affairs, local councils, and GBVIMS+ national database. Designed to turn platform data directly into policy advocacy evidence — four reports per year built into the project plan.</p>
+          <p>One-click generation of district-level SGBV reports formatted for submission to the Ministry of Gender and Children's Affairs, local councils, and GBVIMS+ national database. Designed to turn platform data directly into policy advocacy evidence - four reports per year built into the project plan.</p>
         </div>
       </div>
     </div>
@@ -624,7 +660,7 @@ body {
 
   <!-- DATA STATS -->
   <div class="sec">
-    <div class="sec-label">Why it will work — Sierra Leone context</div>
+    <div class="sec-label">Why it will work - Sierra Leone context</div>
     <h2>The numbers behind the design</h2>
     <div class="data-grid">
       <div class="data-card">
@@ -633,7 +669,7 @@ body {
       </div>
       <div class="data-card">
         <div class="data-num">20<span>%</span></div>
-        <div class="data-label">Internet access — why SMS/USSD is essential, not optional</div>
+        <div class="data-label">Internet access - why SMS/USSD is essential, not optional</div>
       </div>
       <div class="data-card">
         <div class="data-num">3,055</div>
@@ -641,7 +677,7 @@ body {
       </div>
       <div class="data-card">
         <div class="data-num">83<span>%</span></div>
-        <div class="data-label">FGM/C prevalence among women 15–49 (national)</div>
+        <div class="data-label">FGM/C prevalence among women 15-49 (national)</div>
       </div>
       <div class="data-card">
         <div class="data-num">0</div>
@@ -660,7 +696,7 @@ body {
     <h2>What NGO staff see</h2>
     <div class="dash-mock">
       <div class="dash-header">
-        <span class="dash-title">HERLINE 232 — Case Management Dashboard</span>
+        <span class="dash-title">HERLINE 232 - Case Management Dashboard</span>
         <span class="dash-status">● LIVE · 247 active cases</span>
       </div>
       <div class="dash-stats">
@@ -703,22 +739,22 @@ body {
         <h4>Privacy architecture</h4>
         <ul>
           <li><span class="dot"></span>No names or identifiers ever stored</li>
-          <li><span class="dot"></span>Phone numbers hashed — not readable</li>
+          <li><span class="dot"></span>Phone numbers hashed - not readable</li>
           <li><span class="dot"></span>Case tokens used for follow-up only</li>
           <li><span class="dot"></span>End-to-end encrypted data transfer</li>
           <li><span class="dot"></span>Quick-exit / screen-clear on web/WhatsApp</li>
           <li><span class="dot"></span>Data stored on servers within West Africa</li>
-          <li><span class="dot"></span>Role-based access — no single person sees all</li>
+          <li><span class="dot"></span>Role-based access - no single person sees all</li>
           <li><span class="dot"></span>Auto-delete of raw data after 90 days</li>
         </ul>
       </div>
       <div class="info-card">
         <h4>Language support</h4>
         <ul>
-          <li><span class="dot"></span>Krio — primary language, all channels</li>
-          <li><span class="dot"></span>English — all channels</li>
-          <li><span class="dot"></span>Temne — voice IVR (Northern districts)</li>
-          <li><span class="dot"></span>Mende — voice IVR (Eastern districts)</li>
+          <li><span class="dot"></span>Krio - primary language, all channels</li>
+          <li><span class="dot"></span>English - all channels</li>
+          <li><span class="dot"></span>Temne - voice IVR (Northern districts)</li>
+          <li><span class="dot"></span>Mende - voice IVR (Eastern districts)</li>
           <li><span class="dot"></span>Voice note support for non-literate users</li>
           <li><span class="dot"></span>Audio-guided USSD menus</li>
           <li><span class="dot"></span>Plain-language legal summaries in Krio</li>
@@ -777,7 +813,7 @@ body {
   </div>
 
   <div class="footer">
-    <p>HERLINE 232 — MaxCIT Limited Technology Blueprint</p>
+    <p>HERLINE 232 - MaxCIT Limited Technology Blueprint</p>
     <p>CFLI Sierra Leone 2026 · Confidential working document</p>
   </div>
 

@@ -36,17 +36,42 @@
       padding: 0
     }
 
-    body {
-      font-family: 'Outfit', sans-serif;
+    .version-banner {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 10px 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-family: 'Space Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .version-banner span { opacity: 0.8; }
+    .version-banner strong { color: var(--bg); font-weight: 700; margin-left: 5px; }
+    .version-banner a {
+      color: var(--bg);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 4px 12px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .version-banner a:hover {
       background: var(--bg);
       color: var(--ink);
-      line-height: 1.6
+      border-color: var(--bg);
     }
 
     .page {
       max-width: 960px;
       margin: 0 auto;
-      padding: 3rem 2rem 8rem
+      padding: 1rem 2rem 8rem
     }
 
     /* COVER */
@@ -1038,6 +1063,10 @@
 </head>
 
 <body>
+  <div class="version-banner">
+    <div>Viewing: <strong>v2 Blueprint (CFLI 2026 Proposal)</strong></div>
+    <a href="herline232_blueprint.html">Switch to Version 1</a>
+  </div>
   <div class="page">
 
     <!-- COVER -->
